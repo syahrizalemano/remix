@@ -4,6 +4,7 @@ import { Item } from "ytsr";
 import env from "../../env";
 import { youtube } from "../streamer";
 import { numberEmojis } from "../constants";
+import { thumbImages }  from "../constants";
 import { humanize, truncate } from "../helpers";
 import { searches } from "../cache";
 import i18n from "../i18n";
@@ -46,7 +47,8 @@ composer.command(["search", "find"], async ctx => {
 
         text +=
             i18n("search_result", {
-                numberEmoji: numberEmojis.get(i + 1)!,
+                thumbImage: thumbImages.get("thumb.png"),
+            numberEmoji: numberEmojis.get(i + 1)!,
                 title: truncate(result.title),
                 url: result.url,
                 durationEmoji: result.isLive ? "🔴" : "🕓",
